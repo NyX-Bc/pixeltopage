@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topluluk & Etkinlikler - Craigslist Luxe</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Sadece Topluluk Sayfasına Özel Ek Stiller */
+        .category-chip-luxe {
+            background-color: var(--bg-luxe-main);
+            color: var(--dark-luxe);
+            border: 1px solid var(--border-color-luxe);
+            border-radius: 50px;
+            padding: 0.5rem 1.2rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+        }
+        .category-chip-luxe:hover, .category-chip-luxe.active {
+            background-color: var(--luxe-primary);
+            color: #ffffff;
+            border-color: var(--luxe-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 119, 182, 0.3);
+        }
+
+        /* Topluluk İlan Kartları */
+        .community-ad-card-luxe {
+            border-left: 5px solid transparent;
+            transition: border-left-color 0.2s, box-shadow 0.3s;
+        }
+        .community-ad-card-luxe:hover {
+            border-left-color: var(--luxe-accent);
+            box-shadow: var(--shadow-luxe-md);
+        }
+        .ad-date-luxe {
+            font-size: 0.8rem;
+            color: var(--text-muted-luxe);
+            font-weight: 500;
+        }
+
+        /* Ana Başlık Altı Ayırıcı */
+        .header-divider-luxe {
+            width: 80px;
+            height: 4px;
+            background-color: var(--luxe-accent);
+            border-radius: 2px;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="py-3 sticky-top" style="background-color: var(--bg-luxe-header); box-shadow: var(--shadow-luxe-bottom);">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="index.html" class="d-flex align-items-center text-decoration-none">
+                <i class="bi bi-gem me-2 fs-4 text-luxe-primary"></i>
+                <span class="fs-4 fw-bold text-dark-luxe">Craigslist <span class="text-luxe-primary">Luxe</span></span>
+            </a>
+            
+            <form class="d-none d-lg-flex flex-grow-1 mx-5" style="max-width: 500px;">
+                <input class="form-control form-control-lg luxe-input rounded-end-0 border-end-0" type="search" placeholder="Toplulukta Ara..." aria-label="Search">
+                <button class="btn btn-luxe-primary rounded-start-0" type="submit"><i class="bi bi-search"></i></button>
+            </form>
+
+            <div class="d-flex align-items-center gap-3">
+                <a class="btn btn-luxe-accent fw-bold post-ad-btn-luxe" href="ilan-ver.html">
+                    <i class="bi bi-plus-circle me-1"></i> İlan Ver
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        
+        <div class="text-center mb-5">
+            <h1 class="display-5 fw-bolder text-dark-luxe">Yerel Topluluk ve Etkinlikler</h1>
+            <div class="header-divider-luxe mx-auto"></div>
+            <p class="lead text-muted-luxe">İhtiyaçlarınızı, fikirlerinizi paylaşın veya bölgenizdeki güncel etkinlikleri keşfedin.</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8">
+                
+                <div class="mb-4 d-flex flex-wrap gap-2">
+                    <a href="#" class="category-chip-luxe active"><i class="bi bi-chat-dots me-2"></i> Tüm Topluluk</a>
+                    <a href="#" class="category-chip-luxe"><i class="bi bi-calendar-event me-2"></i> Etkinlikler</a>
+                    <a href="#" class="category-chip-luxe"><i class="bi bi-people me-2"></i> Gönüllüler</a>
+                    <a href="#" class="category-chip-luxe"><i class="bi bi-heart me-2"></i> Kayıp/Bulunan</a>
+                    <a href="#" class="category-chip-luxe"><i class="bi bi-question-circle me-2"></i> Tartışma</a>
+                    <a href="#" class="category-chip-luxe"><i class="bi bi-megaphone me-2"></i> Duyurular</a>
+                </div>
+
+                <div class="d-grid gap-3">
+                    
+                    <a href="#" class="card luxe-card p-3 community-ad-card-luxe text-decoration-none text-dark-luxe">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="fw-bold mb-1">
+                                Semt Kütüphanesi İçin Gönüllü İhtiyacı
+                            </h5>
+                            <span class="badge rounded-pill bg-luxe-info text-white">Gönüllü</span>
+                        </div>
+                        <p class="text-muted-luxe mb-2">Beşiktaş'taki kütüphanemizin hafta sonu saatleri için kitap düzenleme ve okuma etkinliklerinde bize katılın...</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                             <div class="ad-date-luxe">Bugün, 14:30 | Beşiktaş/İstanbul</div>
+                             <i class="bi bi-arrow-right-circle-fill text-luxe-accent fs-5"></i>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="card luxe-card p-3 community-ad-card-luxe text-decoration-none text-dark-luxe">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="fw-bold mb-1">
+                                Klasik Film Gecesi: Fight Club Gösterimi
+                            </h5>
+                             <span class="badge rounded-pill bg-luxe-warning text-dark">Etkinlik</span>
+                        </div>
+                        <p class="text-muted-luxe mb-2">Kadıköy'de sinema severlerle tanışmak ve kült filmler hakkında sohbet etmek için sizleri bekliyoruz...</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                             <div class="ad-date-luxe">Yarın, 20:00 | Kadıköy/İstanbul</div>
+                             <i class="bi bi-arrow-right-circle-fill text-luxe-accent fs-5"></i>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="card luxe-card p-3 community-ad-card-luxe text-decoration-none text-dark-luxe">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="fw-bold mb-1">
+                                Kayıp Anahtar: Üzerinde Mavi Kartal Anahtarlık Var
+                            </h5>
+                             <span class="badge rounded-pill bg-luxe-danger text-white">Kayıp</span>
+                        </div>
+                        <p class="text-muted-luxe mb-2">Dün akşam Taksim Meydanı'nda düşürdüğümü düşünüyorum. Görenlerin iletişim kurmasını rica ediyorum...</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                             <div class="ad-date-luxe">2 Gün Önce | Taksim/İstanbul</div>
+                             <i class="bi bi-arrow-right-circle-fill text-luxe-accent fs-5"></i>
+                        </div>
+                    </a>
+
+                    <nav class="mt-4" aria-label="Topluluk İlanları Sayfalama">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled"><a class="page-link" href="#"><i class="bi bi-chevron-left"></i></a></li>
+                            <li class="page-item active" aria-current="page"><a class="page-link bg-luxe-primary border-luxe-primary" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link text-dark-luxe" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link text-dark-luxe" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#"><i class="bi bi-chevron-right"></i></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                 <div class="card luxe-card p-4 shadow-luxe-sm mb-4">
+                    <h5 class="fw-bold mb-3 text-luxe-primary">Topluluk Hızlı Bağlantıları</h5>
+                    <div class="list-group list-group-flush">
+                        <a href="#" class="list-group-item list-group-item-action text-dark-luxe"><i class="bi bi-plus-circle me-2"></i> Yeni Etkinlik İlanı Ver</a>
+                        <a href="#" class="list-group-item list-group-item-action text-dark-luxe"><i class="bi bi-chat-left-text me-2"></i> Popüler Tartışmalar</a>
+                        <a href="#" class="list-group-item list-group-item-action text-dark-luxe"><i class="bi bi-pin-map me-2"></i> Yakınımdaki İlanlar</a>
+                        <a href="#" class="list-group-item list-group-item-action text-dark-luxe"><i class="bi bi-info-circle me-2"></i> Topluluk Kuralları</a>
+                    </div>
+                </div>
+
+                <div class="card luxe-card p-4 text-center bg-luxe-primary text-white shadow-luxe-md">
+                    <i class="bi bi-lightbulb-fill fs-3 mb-2 text-luxe-accent-text"></i>
+                    <h5 class="fw-bold">Bir Fikriniz mi Var?</h5>
+                    <p class="fs-6 mb-3">Hemen topluluk sayfanızda bir duyuru yayınlayın.</p>
+                    <a href="ilan-ver.html" class="btn btn-warning fw-bold btn-lg">Ücretsiz İlan Ver</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-luxe-footer text-white-50 py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0 fs-6 text-luxe-muted">&copy; <span id="year"></span> Craigslist Luxe UI. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+             document.getElementById('year').textContent = new Date().getFullYear();
+             // İstenirse burada filtreleme çipleri için JavaScript eklenebilir.
+        });
+    </script>
+</body>
+</html>

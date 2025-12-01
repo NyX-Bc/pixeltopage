@@ -1,0 +1,402 @@
+/* MODERN TEKNOLOJİ UI STYLE.CSS */
+
+/* Renk Paleti ve Değişkenler */
+:root {
+    /* Yeni ve Zengin Renkler */
+    --primary-tech: #690061;
+    --secondary-tech: #6c757d;
+    --accent-tech: #17a2b8; /* Sarı yerine daha modern, aqua mavi vurgu */
+    --bg-dark-x: #18202b; /* Daha derin koyu zemin */
+    --bg-light-x: #f4f6f8;
+    --card-bg: #f80808;
+    --focus-glow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25); /* Mavi odak halkası */
+    --shadow-light: 0 6px 16px rgba(0, 0, 0, 0.08); /* Daha yumuşak gölge */
+    --shadow-hover: 0 10px 20px rgba(0, 0, 0, 0.15); /* Daha belirgin hover gölgesi */
+    --radius-md: 0.5rem; 
+}
+/* Genel Stil */
+* { box-sizing: border-box; }
+
+body {
+    background: linear-gradient(180deg, #ffffff 0%, var(--bg-light-x) 100%);
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    line-height: 1.5;
+    transition: background-color 0.3s;
+}
+a {
+    color: var(--primary-tech);
+    text-decoration: none;
+    transition: color 0.2s, transform 0.2s;
+}
+
+a:hover {
+    color: var(--link-color-hover);
+    text-decoration: none;
+}
+
+/* --- Header Stilleri --- */
+header {
+    background-color: var(--card-bg) !important;
+    background: linear-gradient(90deg, #2c75db 0%, #b80606 100%) !important;
+}
+
+.logo-brand .logo-icon {
+    color: var(--primary-tech);
+    transition: transform 0.3s;
+}
+.logo-brand:hover .logo-icon {
+    transform: rotate(10deg) scale(1.05);
+}
+
+/* Modern Input & Button */
+.modern-input, .modern-btn-x {
+    border-radius: var(--radius-md) !important;
+    border-color: #efe9ee;
+}
+
+.modern-btn {
+    border-radius: var(--radius-md) !important;
+    font-weight: 600;
+}
+
+.search-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.post-ad-btn-x {
+    background-color: var(--accent-tech) !important; /* Sarıdan Mavi-Aqua'ya geçiş */
+    border-color: var(--accent-tech) !important;
+    color: var(--card-bg) !important; /* Metin rengi beyaz */
+    font-weight: 600 !important;
+    letter-spacing: 0.5px;
+}
+
+.post-ad-btn-x:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 193, 7, 0.4);
+    background-color: #138496 !important; 
+}
+
+/* --- Kart Stilleri --- */
+.modern-card {
+    border: none; /* Sınır yok */
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-light);
+    transition: all 0.3s ease-in-out;
+}
+
+.modern-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+}
+
+/* Kategori Kartları */
+.modern-category-card {
+    min-height: 100%;
+}
+.category-header {
+    border-top-left-radius: var(--radius-md);
+    border-top-right-radius: var(--radius-md);
+    font-size: 1.25rem;
+    padding: 1rem 1.25rem !important;
+}
+
+/* Kompakt Liste */
+.compact-list {
+    max-height: 180px;
+    overflow-y: auto;
+}
+
+.compact-list .list-group-item {
+    padding: 0.4rem 1.25rem;
+    font-size: 0.9rem;
+    border: none;
+    transition: background-color 0.2s;
+}
+.compact-list .list-group-item a {
+    color: var(--text-color);
+}
+.compact-list .list-group-item:hover {
+    background-color: var(--bg-light-x);
+}
+
+/* Kaydırılabilir Liste (İş, Satılık) */
+.scrollable-list {
+    max-height: 160px; /* Belirli bir yükseklikte sabitlenir */
+    overflow-y: auto;
+    padding-right: 6px; 
+    /* Kaydırma çubuğu stili (Webkit) */
+}
+.scrollable-list::-webkit-scrollbar {
+    width: 6px;
+}
+.scrollable-list::-webkit-scrollbar-thumb {
+    background-color: var(--secondary-tech);
+    border-radius: 3px;
+}
+
+.scrollable-grid {
+    max-height: 200px; 
+    overflow-y: auto;
+    padding-right: 6px; 
+}
+
+/* Forum Linkleri (Chip Style) */
+.forum-link {
+    display: inline-block;
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius-md);
+    background-color: #e9ecef;
+    color: var(--text-color);
+    font-size: 0.85rem;
+    text-align: center;
+    transition: background-color 0.2s, color 0.2s;
+}
+.forum-link:hover {
+    background-color: var(--primary-tech);
+    color: var(--card-bg);
+    text-decoration: none;
+}
+
+/* --- Sidebar Stilleri --- */
+.modern-list-group a {
+    padding: 0.6rem 1rem;
+    font-size: 0.95rem;
+    border-radius: 0.5rem !important;
+    margin-bottom: 5px;
+    border-left: 3px solid transparent;
+}
+.modern-list-group a:hover {
+    background-color: #e9ecef;
+    border-left-color: var(--primary-tech);
+}
+
+/* Takvim Stili */
+#cal-wrap {
+    font-size: 0.9rem;
+}
+#cal {
+    border-spacing: 2px 0;
+}
+.cal-day-link {
+    display: block;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    border-radius: 50%;
+    color: var(--text-color);
+    font-weight: 500;
+    margin: 0 auto;
+    transition: background-color 0.2s, color 0.2s;
+}
+.cal-day-link:hover {
+    background-color: var(--primary-tech);
+    color: var(--card-bg);
+    text-decoration: none;
+}
+.today-cell {
+    background-color: var(--accent-tech);
+    color: var(--text-color) !important;
+    font-weight: 700;
+}
+.today-cell:hover {
+    background-color: #e0a800;
+    color: var(--card-bg) !important;
+}
+#cal th {
+    font-size: 0.75rem;
+    color: var(--secondary-tech);
+}
+
+/* Bölge Chip Stili */
+.region-chip {
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.5rem;
+    background-color: #e9ecef;
+    color: var(--text-color);
+    font-size: 0.8rem;
+    white-space: nowrap;
+    transition: background-color 0.2s;
+}
+.region-chip:hover {
+    background-color: var(--primary-tech);
+    color: var(--card-bg);
+    text-decoration: none;
+}
+
+/* --- Footer Stilleri --- */
+.site-footer {
+    background-color: var(--bg-dark-x) !important;
+    color: var(--card-bg);
+}
+
+.site-footer h6 {
+    color: var(--accent-tech); /* Başlıklar Mavi-Aqua aksan rengi */
+    font-weight: 700;
+    letter-spacing: 0.8px;
+}
+
+.compact-footer-list li a {
+    color: #adb5bd;
+    padding: 0.2rem 0; /* Dikey boşluğu azalt */
+    font-size: 0.9rem;
+}
+.compact-footer-list li a:hover {
+    color: var(--accent-tech);
+}
+
+.logo-brand-footer {
+    color: var(--card-bg);
+}
+
+.social-icons-footer a {
+    color: #adb5bd;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    transition: color 0.2s;
+}
+.social-icons-footer a:hover {
+    color: var(--accent-tech);
+}
+
+.footer-bottom {
+    border-top-color: #343a40 !important;
+}
+
+.modern-input-light {
+    background-color: #343a40;
+    border-color: #495057;
+    color: var(--card-bg);
+    transition: all 0.3s ease;
+}
+.modern-input-light::placeholder {
+    color: #adb5bd;
+}
+
+.luxe-accordion {
+    border-radius: 0 0 var(--radius-luxe) var(--radius-luxe);
+    overflow: hidden; /* Köşeleri yuvarlama */
+}
+.luxe-accordion .accordion-item {
+    border: 1px solid var(--border-color-luxe);
+    border-top: none;
+}
+.luxe-accordion .accordion-item:first-of-type {
+    border-top: none; 
+}
+
+/* Akordeon Buton Başlık Stili */
+.region-accordion-btn-luxe {
+    padding: 1rem 1.5rem;
+    font-weight: 600;
+    color: var(--dark-luxe);
+    background-color: var(--card-bg-luxe);
+    transition: all 0.2s;
+    border-left: 3px solid transparent;
+}
+.region-accordion-btn-luxe:hover {
+    background-color: var(--bg-luxe-main);
+    border-left-color: var(--luxe-primary);
+}
+
+/* Açık Akordeon Başlık Stili */
+.region-accordion-btn-luxe:not(.collapsed) {
+    color: var(--luxe-primary); /* Açıldığında ana renk */
+    background-color: var(--bg-luxe-main);
+    border-left-color: var(--luxe-primary);
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.05); /* Yumuşak alt çizgi */
+}
+
+/* Akordeon İkonları */
+.region-accordion-btn-luxe i {
+    font-size: 1.1rem;
+    color: var(--text-muted-luxe);
+    transition: color 0.2s;
+}
+.region-accordion-btn-luxe:not(.collapsed) i {
+    color: var(--luxe-primary);
+}
+
+/* Akordeon İçerik (Chip'ler) */
+.luxe-accordion .accordion-body {
+    background-color: var(--card-bg-luxe);
+    border-top: 1px solid var(--border-color-luxe);
+}
+
+.modern-input-light:focus {
+    background-color: #495057 !important;
+}
+
+.trend-header-luxe {
+    /* Başlık rengini derin ve sıcak bir gradient ile değiştirme */
+    background: linear-gradient(90deg, #dc3545 0%, #ff5722 50%, #ff9f1c 100%) !important; /* Derin Kırmızıdan Ateşli Turuncuya */
+    padding: 0.8rem 1.2rem;
+    color: var(--card-bg-luxe); /* Metin rengi kart arka planı (açık modda beyaz, dark modda koyu) */
+    border-bottom: 3px solid var(--luxe-accent); /* Altın rengiyle sınır korundu */
+    box-shadow: 0 4px 10px rgba(220, 53, 69, 0.5); /* Kırmızıya uygun gölge efekti */
+}
+/* Trend Widget Kartına Gradient Kenarlık Eklenmesi */
+.trend-widget-luxe {
+    border-radius: var(--radius-luxe);
+    /* Göz alıcı, lüks bir kenarlık efekti oluşturmak için */
+    border: 3px solid transparent; 
+    background-clip: padding-box;
+    position: relative;
+    overflow: hidden;
+}
+/* Sahte Gradient Kenarlık için :before Pseudo-Elementi */
+.trend-widget-luxe::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: -1;
+    margin: -3px; /* Kenarlık kalınlığı kadar dışarı yayılma */
+    border-radius: var(--radius-luxe);
+    /* Gradient tanımı: Mavi'den Altın'a Geçiş */
+    background: linear-gradient(45deg, #dc3545, var(--luxe-accent));
+}
+
+/* Trend Liste Öğeleri */
+.trend-list-luxe {
+    padding-left: 0;
+}
+.trend-item-luxe {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 5px;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--dark-luxe);
+    transition: all 0.2s;
+    color: #dc3545;
+}
+.trend-item-luxe i {
+    color: var(--luxe-primary);
+}
+.trend-item-luxe:hover {
+    background-color: var(--bg-luxe-main);
+    color: var(--luxe-primary);
+    transform: translateX(4px); /* Hafif Kaydırma Animasyonu */
+}
+
+.modern-input:focus, 
+.modern-input-light:focus,
+.form-select:focus {
+    border-color: var(--primary-tech) !important;
+    box-shadow: var(--focus-glow) !important; /* Standart odak gölgesi */
+    outline: 0;
+}
+
+/* Responsive Düzenleme (Ekranın sıkışmasını engellemek için) */
+@media (max-width: 991px) {
+    .container-fluid { padding-left: 1rem; padding-right: 1rem; }
+    .search-form { max-width: 100%; margin: 0; }
+    .col-lg-6 { width: 100%; }
+    .col-lg-3 { width: 100%; }
+    .footer-grid > div { text-align: center; align-items: center; }
+    .footer-subscribe-form { justify-content: center; }
+    .social-icons-footer { text-align: center; }
+}

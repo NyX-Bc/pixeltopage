@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profesyonel Hizmetler - Craigslist Luxe</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Sadece Hizmetler Sayfasına Özel Ek Stiller */
+        .header-divider-luxe {
+            width: 80px;
+            height: 4px;
+            background-color: var(--luxe-accent);
+            border-radius: 2px;
+            margin-bottom: 2rem;
+        }
+
+        /* Hizmet İlan Kartları */
+        .service-card-luxe {
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 5px solid transparent;
+        }
+        .service-card-luxe:hover {
+            transform: translateY(-3px); /* Hafif yukarı kalkma efekti */
+            box-shadow: var(--shadow-luxe-md);
+            border-left-color: var(--luxe-primary);
+        }
+        
+        .service-title-luxe {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark-luxe);
+        }
+        .service-provider-luxe {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--luxe-accent); /* Sağlayıcı Adı Altın rengi */
+        }
+        .service-meta-luxe {
+            font-size: 0.85rem;
+            color: var(--text-muted-luxe);
+        }
+        .service-tag-luxe {
+            background-color: var(--bg-luxe-main);
+            padding: 0.3rem 0.7rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--luxe-primary);
+            border: 1px solid var(--border-color-luxe);
+        }
+
+        /* Ana Kategori Kartları */
+        .main-category-card-luxe {
+             transition: all 0.2s;
+             background-color: var(--bg-luxe-main);
+             border: 1px solid var(--border-color-luxe);
+        }
+        .main-category-card-luxe:hover {
+            background-color: var(--luxe-primary);
+            color: white;
+            transform: scale(1.05);
+            box-shadow: var(--shadow-luxe-md);
+        }
+         .main-category-card-luxe:hover .text-dark-luxe, .main-category-card-luxe:hover .text-luxe-primary {
+            color: white !important;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="py-3 sticky-top" style="background-color: var(--bg-luxe-header); box-shadow: var(--shadow-luxe-bottom);">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="index.html" class="d-flex align-items-center text-decoration-none">
+                <i class="bi bi-gem me-2 fs-4 text-luxe-primary"></i>
+                <span class="fs-4 fw-bold text-dark-luxe">Craigslist <span class="text-luxe-primary">Luxe</span></span>
+            </a>
+            
+            <form class="d-none d-lg-flex flex-grow-1 mx-5" style="max-width: 500px;">
+                <input class="form-control form-control-lg luxe-input rounded-end-0 border-end-0" type="search" placeholder="Hizmetlerde Ara (Örn: Web Tasarım, Tesisatçı)..." aria-label="Search">
+                <button class="btn btn-luxe-primary rounded-start-0" type="submit"><i class="bi bi-search"></i></button>
+            </form>
+
+            <div class="d-flex align-items-center gap-3">
+                 <a class="btn btn-luxe-accent fw-bold post-ad-btn-luxe" href="ilan-ver.html">
+                    <i class="bi bi-gear me-1"></i> Hizmet İlanı Ver
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        
+        <div class="text-center mb-5">
+            <h1 class="display-5 fw-bolder text-dark-luxe">Profesyonel Hizmetler Kataloğu</h1>
+            <div class="header-divider-luxe mx-auto"></div>
+            <p class="lead text-muted-luxe">İşinizi ciddiye alan, yerel profesyonelleri hızla bulun.</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3">
+                <h5 class="fw-bold mb-3 text-luxe-primary">Popüler Kategoriler</h5>
+                <div class="d-grid gap-3">
+                    <a href="#" class="card main-category-card-luxe p-3 text-decoration-none text-dark-luxe text-center rounded-3">
+                        <i class="bi bi-code-slash fs-4 mb-2 text-luxe-primary"></i>
+                        <span class="fw-bold fs-6">Yazılım & Web</span>
+                        <span class="text-muted-luxe fs-6">(42 İlan)</span>
+                    </a>
+                    <a href="#" class="card main-category-card-luxe p-3 text-decoration-none text-dark-luxe text-center rounded-3">
+                        <i class="bi bi-house-gear-fill fs-4 mb-2 text-luxe-primary"></i>
+                        <span class="fw-bold fs-6">Ev Tadilat & Tamir</span>
+                        <span class="text-muted-luxe fs-6">(28 İlan)</span>
+                    </a>
+                    <a href="#" class="card main-category-card-luxe p-3 text-decoration-none text-dark-luxe text-center rounded-3">
+                        <i class="bi bi-bank2 fs-4 mb-2 text-luxe-primary"></i>
+                        <span class="fw-bold fs-6">Hukuk & Muhasebe</span>
+                        <span class="text-muted-luxe fs-6">(15 İlan)</span>
+                    </a>
+                    <a href="#" class="card main-category-card-luxe p-3 text-decoration-none text-dark-luxe text-center rounded-3">
+                        <i class="bi bi-brush-fill fs-4 mb-2 text-luxe-primary"></i>
+                        <span class="fw-bold fs-6">Eğitim & Dersler</span>
+                        <span class="text-muted-luxe fs-6">(34 İlan)</span>
+                    </a>
+                </div>
+                <div class="text-center mt-3">
+                    <a href="#" class="text-luxe-primary fw-bold text-decoration-none">Tüm Kategorileri Gör <i class="bi bi-arrow-right-short"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-9">
+                
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <span class="text-muted-luxe">Gösterilen 1 - 20 arası (Tüm Kategoriler)</span>
+                    <div class="d-flex gap-2">
+                         <select class="form-select form-select-sm luxe-input w-auto">
+                            <option>En Yüksek Puanlılar</option>
+                            <option>En Yeni İlanlar</option>
+                            <option>En Çok Görüntülenenler</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="d-grid gap-3">
+                    
+                    <a href="#" class="card luxe-card p-4 service-card-luxe text-decoration-none">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h4 class="service-title-luxe mb-1">Premium Kurumsal Web Sitesi Tasarımı</h4>
+                                <span class="service-provider-luxe"><i class="bi bi-person-fill me-1"></i> Studio Luxe Yazılım</span>
+                            </div>
+                            <div class="text-end">
+                                <span class="badge bg-success text-white fw-bold fs-6"><i class="bi bi-star-fill me-1"></i> 4.9</span>
+                                <div class="service-meta-luxe mt-1">1 Gün Önce</div>
+                            </div>
+                        </div>
+                        <p class="text-muted-luxe my-3">Modern arayüz, SEO optimizasyonu ve 7/24 destekle size özel web çözümleri.</p>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="service-tag-luxe">React</span>
+                            <span class="service-tag-luxe">E-Ticaret</span>
+                            <span class="service-tag-luxe">UI/UX</span>
+                            <span class="service-tag-luxe">Uzaktan Çalışma</span>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="card luxe-card p-4 service-card-luxe text-decoration-none">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h4 class="service-title-luxe mb-1">Acil Sıhhi Tesisat ve Su Kaçağı Onarımı</h4>
+                                <span class="service-provider-luxe"><i class="bi bi-person-fill me-1"></i> Mert Usta Tesisat</span>
+                            </div>
+                             <div class="text-end">
+                                <span class="badge bg-warning text-dark fw-bold fs-6"><i class="bi bi-star-fill me-1"></i> 4.5</span>
+                                <div class="service-meta-luxe mt-1">5 Saat Önce</div>
+                            </div>
+                        </div>
+                        <p class="text-muted-luxe my-3">İstanbul Anadolu Yakası'nda 1 saatte adreste! Garantili ve temiz işçilik.</p>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="service-tag-luxe">7/24 Acil</span>
+                            <span class="service-tag-luxe">Petek Temizliği</span>
+                            <span class="service-tag-luxe">Sıhhi Tesisat</span>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="card luxe-card p-4 service-card-luxe text-decoration-none">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h4 class="service-title-luxe mb-1">İngilizce Özel Ders (TOEFL/IELTS Hazırlık)</h4>
+                                <span class="service-provider-luxe"><i class="bi bi-person-fill me-1"></i> Dr. Elif Hoca</span>
+                            </div>
+                             <div class="text-end">
+                                <span class="badge bg-success text-white fw-bold fs-6"><i class="bi bi-star-fill me-1"></i> 5.0</span>
+                                <div class="service-meta-luxe mt-1">Dün</div>
+                            </div>
+                        </div>
+                        <p class="text-muted-luxe my-3">Akademik İngilizce ve sınav hazırlıkta 10 yıllık tecrübe. İlk ders ücretsiz.</p>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="service-tag-luxe">Online Ders</span>
+                            <span class="service-tag-luxe">IELTS</span>
+                            <span class="service-tag-luxe">Üniversite Hazırlık</span>
+                        </div>
+                    </a>
+
+                    <nav class="mt-4" aria-label="Hizmet İlanları Sayfalama">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled"><a class="page-link" href="#"><i class="bi bi-chevron-left"></i></a></li>
+                            <li class="page-item active" aria-current="page"><a class="page-link bg-luxe-primary border-luxe-primary" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link text-dark-luxe" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link text-dark-luxe" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#"><i class="bi bi-chevron-right"></i></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-luxe-footer text-white-50 py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0 fs-6 text-luxe-muted">&copy; <span id="year"></span> Craigslist Luxe UI. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+             document.getElementById('year').textContent = new Date().getFullYear();
+             // Ekstra filtreleme JS'i buraya eklenebilir.
+        });
+    </script>
+</body>
+</html>

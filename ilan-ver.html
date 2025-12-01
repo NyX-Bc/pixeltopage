@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İlan Yayınla - Craigslist Luxe</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Sadece İlan Ver Sayfasına Özel Ek Stiller (index.html'deki style.css'e eklenmeyecek) */
+        .step-card-luxe {
+            border: 1px solid var(--border-color-luxe);
+            background-color: var(--card-bg-luxe);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .step-card-luxe:hover {
+            box-shadow: var(--shadow-luxe-md);
+            border-color: var(--luxe-primary);
+        }
+        .step-card-luxe.active {
+            border-left: 5px solid var(--luxe-accent);
+            box-shadow: var(--shadow-luxe-md);
+        }
+        .progress-indicator-luxe {
+            height: 10px;
+            background-color: var(--border-color-luxe);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .progress-bar-luxe {
+            height: 100%;
+            background-color: var(--luxe-accent);
+            transition: width 0.5s ease-in-out;
+        }
+        /* Form Etiketleri */
+        .form-label-luxe {
+            font-weight: 600;
+            color: var(--dark-luxe);
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="py-3 sticky-top" style="background-color: var(--bg-luxe-header); box-shadow: var(--shadow-luxe-bottom);">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="index.html" class="d-flex align-items-center text-decoration-none">
+                <i class="bi bi-gem me-2 fs-4 text-luxe-primary"></i>
+                <span class="fs-4 fw-bold text-dark-luxe">Craigslist <span class="text-luxe-primary">Luxe</span></span>
+            </a>
+
+            <h1 class="fs-5 text-dark-luxe fw-bold m-0 d-none d-md-block">Yeni İlan Yayınlama Sihirbazı</h1>
+            
+            <div class="d-flex align-items-center gap-3">
+                <a class="btn btn-luxe-secondary luxe-btn-icon" href="index.html" aria-label="Ana Sayfaya Dön">
+                    <i class="bi bi-x-lg"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <div class="row justify-content-center">
+            
+            <div class="col-12 mb-4">
+                <div class="progress-indicator-luxe">
+                    <div id="progress-bar" class="progress-bar-luxe" style="width: 33%;"></div>
+                </div>
+                <div class="d-flex justify-content-between mt-2 text-muted-luxe fw-bold">
+                    <span>1. Kategori Seçimi</span>
+                    <span>2. Detay Girişi</span>
+                    <span>3. Onay & Yayınla</span>
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+                <div class="card luxe-card p-4 shadow-lg">
+                    
+                    <h2 class="fs-3 fw-bold text-luxe-primary mb-4" id="form-title">1. Kategori Seçimi</h2>
+                    
+                    <div id="step-1">
+                        <p class="text-muted-luxe mb-4">Lütfen ilanınızın en uygun olduğu ana kategoriyi seçin.</p>
+                        
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="step-card-luxe p-4 rounded-3 active" data-step-id="1">
+                                    <h5 class="fw-bold mb-2"><i class="bi bi-bag-fill me-2 text-luxe-accent"></i> Satılık Ürünler</h5>
+                                    <p class="text-muted-luxe mb-0">Elektronik, Mobilya, Giysi, Sanat Eserleri vb.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="step-card-luxe p-4 rounded-3" data-step-id="2">
+                                    <h5 class="fw-bold mb-2"><i class="bi bi-house-fill me-2 text-luxe-primary"></i> Emlak & Konut</h5>
+                                    <p class="text-muted-luxe mb-0">Kiralık daireler, satılık evler ve emlak hizmetleri.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="step-card-luxe p-4 rounded-3" data-step-id="3">
+                                    <h5 class="fw-bold mb-2"><i class="bi bi-briefcase-fill me-2 text-luxe-primary"></i> İş & Kariyer</h5>
+                                    <p class="text-muted-luxe mb-0">İş ilanları, stajyerlik ve serbest çalışma fırsatları.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="step-card-luxe p-4 rounded-3" data-step-id="4">
+                                    <h5 class="fw-bold mb-2"><i class="bi bi-people-fill me-2 text-luxe-accent"></i> Topluluk & Hizmetler</h5>
+                                    <p class="text-muted-luxe mb-0">Dersler, Etkinlikler, Gönüllü projeler ve hizmetler.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-end mt-4">
+                            <button class="btn btn-luxe-accent fw-bold btn-lg shadow-luxe-sm" onclick="nextStep(2)">
+                                İlerle <i class="bi bi-arrow-right-circle-fill ms-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="step-2" style="display: none;">
+                        <div class="mb-4">
+                            <label for="adTitle" class="form-label-luxe">İlan Başlığı</label>
+                            <input type="text" class="form-control luxe-input form-control-lg" id="adTitle" placeholder="Örn: Sıfır Ayarında Apple MacBook Pro (2024)">
+                        </div>
+                        <div class="mb-4">
+                            <label for="adDescription" class="form-label-luxe">İlan Detayları</label>
+                            <textarea class="form-control luxe-input" id="adDescription" rows="6" placeholder="Ürün durumu, fiyatı, teslimat koşulları ve diğer önemli detayları buraya yazınız."></textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label for="adPhotos" class="form-label-luxe">Görseller <span class="text-muted-luxe fs-6">(Maks. 5 adet)</span></label>
+                            <input class="form-control luxe-input" type="file" id="adPhotos" multiple>
+                        </div>
+
+                        <div class="d-flex justify-content-between mt-4">
+                            <button class="btn btn-luxe-secondary fw-bold" onclick="nextStep(1)">
+                                <i class="bi bi-arrow-left-circle-fill me-2"></i> Geri
+                            </button>
+                            <button class="btn btn-luxe-accent fw-bold btn-lg shadow-luxe-sm" onclick="nextStep(3)">
+                                Gözden Geçir <i class="bi bi-check-circle-fill ms-2"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="step-3" style="display: none;">
+                        <div class="alert alert-warning luxe-card p-4">
+                            <h4 class="alert-heading text-luxe-primary"><i class="bi bi-lightbulb me-2"></i> Son Kontrol</h4>
+                            <p>İlanınızı yayınlamadan önce başlık, açıklama ve görsellerin doğruluğunu son bir kez kontrol edin.</p>
+                            <hr>
+                            <p class="mb-0 fs-6 text-muted-luxe">Yayınlama işlemi geri alınamaz ve ilk 24 saat için düzenleme hakkı tek kullanımlıktır.</p>
+                        </div>
+                        <div class="form-check my-4">
+                            <input class="form-check-input" type="checkbox" value="" id="approveTerms">
+                            <label class="form-check-label form-label-luxe" for="approveTerms">
+                                Kullanım koşullarını ve yayınlama kurallarını okudum, onaylıyorum.
+                            </label>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between mt-4">
+                            <button class="btn btn-luxe-secondary fw-bold" onclick="nextStep(2)">
+                                <i class="bi bi-arrow-left-circle-fill me-2"></i> Detayları Düzenle
+                            </button>
+                            <button class="btn btn-success fw-bold btn-lg shadow-luxe-sm" id="publish-btn" disabled>
+                                İlanı Şimdi Yayınla!
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+        </div>
+    </main>
+
+    <footer class="bg-luxe-footer text-white-50 py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0 fs-6 text-luxe-muted">&copy; <span id="year"></span> Craigslist Luxe UI. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // İlan Verme Sihirbazı JavaScript
+        const steps = ['step-1', 'step-2', 'step-3'];
+        const titles = ['1. Kategori Seçimi', '2. İlan Detaylarını Girin', '3. Onay ve Yayınlama'];
+
+        function nextStep(stepIndex) {
+            // İlerleme Çubuğu ve Başlık Güncelleme
+            document.getElementById('progress-bar').style.width = (stepIndex * 33) + '%';
+            document.getElementById('form-title').textContent = titles[stepIndex - 1];
+
+            // Adımları Gizleme/Gösterme
+            steps.forEach((stepId, index) => {
+                document.getElementById(stepId).style.display = (index + 1 === stepIndex) ? 'block' : 'none';
+            });
+            
+            // Kategori Kartlarını Güncelleme (Sadece Adım 1 için)
+            if (stepIndex === 1) {
+                 document.querySelectorAll('.step-card-luxe').forEach(card => {
+                    card.addEventListener('click', () => {
+                        document.querySelectorAll('.step-card-luxe').forEach(c => c.classList.remove('active'));
+                        card.classList.add('active');
+                    });
+                });
+            }
+
+            // Onay butonunu etkinleştirme (Sadece Adım 3 için)
+            if (stepIndex === 3) {
+                const approveTerms = document.getElementById('approveTerms');
+                const publishBtn = document.getElementById('publish-btn');
+                
+                approveTerms.addEventListener('change', () => {
+                    publishBtn.disabled = !approveTerms.checked;
+                });
+            }
+
+            window.scrollTo(0, 0); // Sayfanın en üstüne kaydır
+        }
+        
+        // İlk yüklemede varsayılan aktif kategori kartını ayarla
+        document.addEventListener('DOMContentLoaded', () => {
+             document.getElementById('year').textContent = new Date().getFullYear();
+             nextStep(1); // Sihirbazı 1. Adımdan Başlat
+        });
+
+    </script>
+</body>
+</html>

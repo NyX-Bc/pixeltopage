@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İş İlanları & Kariyer - Craigslist Luxe</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Sadece İş İlanları Sayfasına Özel Ek Stiller */
+        .header-divider-luxe {
+            width: 80px;
+            height: 4px;
+            background-color: var(--luxe-accent);
+            border-radius: 2px;
+            margin-bottom: 2rem;
+        }
+
+        /* İş İlanı Kartları (Liste Görünümü) */
+        .job-card-luxe {
+            transition: border-left-color 0.3s, box-shadow 0.3s;
+            border-left: 5px solid transparent; /* Varsayılan ayırıcı */
+        }
+        .job-card-luxe:hover {
+            border-left-color: var(--luxe-primary); /* Üzerine gelince Mavi vurgu */
+            box-shadow: var(--shadow-luxe-md);
+        }
+        .job-card-luxe.featured {
+            border-left-color: var(--luxe-accent); /* Öne çıkan ilan Altın vurgu */
+        }
+        
+        .job-title-luxe {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark-luxe);
+        }
+        .company-luxe {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-muted-luxe);
+        }
+        .job-salary-luxe {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--luxe-accent); /* Altın renginde maaş */
+        }
+        .job-detail-chip-luxe {
+            background-color: var(--bg-luxe-main);
+            padding: 0.3rem 0.7rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--luxe-primary);
+        }
+        
+        /* Filtre Butonları */
+        .filter-check-luxe {
+            color: var(--dark-luxe);
+            cursor: pointer;
+        }
+        .filter-check-luxe:hover {
+            color: var(--luxe-primary);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="py-3 sticky-top" style="background-color: var(--bg-luxe-header); box-shadow: var(--shadow-luxe-bottom);">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="index.html" class="d-flex align-items-center text-decoration-none">
+                <i class="bi bi-gem me-2 fs-4 text-luxe-primary"></i>
+                <span class="fs-4 fw-bold text-dark-luxe">Craigslist <span class="text-luxe-primary">Luxe</span></span>
+            </a>
+            
+            <form class="d-none d-lg-flex flex-grow-1 mx-5" style="max-width: 500px;">
+                <input class="form-control form-control-lg luxe-input rounded-end-0 border-end-0" type="search" placeholder="Pozisyon, Şirket veya Yetenek Ara..." aria-label="Search">
+                <button class="btn btn-luxe-primary rounded-start-0" type="submit"><i class="bi bi-search"></i></button>
+            </form>
+
+            <div class="d-flex align-items-center gap-3">
+                 <a class="btn btn-luxe-accent fw-bold post-ad-btn-luxe" href="ilan-ver.html">
+                    <i class="bi bi-person-workspace me-1"></i> İş İlanı Ver
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        
+        <div class="text-center mb-5">
+            <h1 class="display-5 fw-bolder text-dark-luxe">İş İlanları ve Kariyer Fırsatları</h1>
+            <div class="header-divider-luxe mx-auto"></div>
+            <p class="lead text-muted-luxe">Gelişiminize odaklanın. Lüks kariyerinize buradan başlayın.</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="card luxe-card p-4 shadow-luxe-sm mb-4">
+                    <h5 class="fw-bold mb-3 text-luxe-primary">İlanı Filtrele</h5>
+                    
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Çalışma Şekli</label>
+                        <div class="form-check filter-check-luxe">
+                            <input class="form-check-input" type="checkbox" id="fullTime" checked>
+                            <label class="form-check-label" for="fullTime">Tam Zamanlı</label>
+                        </div>
+                        <div class="form-check filter-check-luxe">
+                            <input class="form-check-input" type="checkbox" id="remote">
+                            <label class="form-check-label" for="remote">Uzaktan (Remote)</label>
+                        </div>
+                        <div class="form-check filter-check-luxe">
+                            <input class="form-check-input" type="checkbox" id="partTime">
+                            <label class="form-check-label" for="partTime">Yarı Zamanlı</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Deneyim Seviyesi</label>
+                        <select class="form-select luxe-input">
+                            <option>Tümü</option>
+                            <option>Giriş Seviyesi</option>
+                            <option>Orta Seviye</option>
+                            <option>Uzman/Yönetici</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Minimum Maaş (₺)</label>
+                        <input type="number" class="form-control luxe-input" placeholder="Min Maaş">
+                    </div>
+
+                    <button class="btn btn-luxe-accent fw-bold">İlanları Ara</button>
+                </div>
+            </div>
+
+            <div class="col-lg-9">
+                
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <span class="text-muted-luxe">Gösterilen 1 - 20 arası (Toplam 285 İlan)</span>
+                    <div class="d-flex gap-2">
+                         <select class="form-select form-select-sm luxe-input w-auto">
+                            <option>En Yeni İlanlar</option>
+                            <option>En Yüksek Maaş</option>
+                            <option>En Çok Başvuru</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="d-grid gap-3">
+                    
+                    <a href="#" class="card luxe-card p-4 job-card-luxe featured text-decoration-none">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h4 class="job-title-luxe text-dark-luxe">Senior Back-End Developer (Java/Spring)</h4>
+                            <span class="badge bg-luxe-accent text-dark fw-bold">ÖNE ÇIKAN</span>
+                        </div>
+                        <div class="d-flex flex-wrap align-items-center gap-3 mb-3">
+                            <span class="company-luxe"><i class="bi bi-building me-1"></i> TechVision Labs</span>
+                            <span class="job-salary-luxe">120.000 ₺ - 160.000 ₺ / Ay</span>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <span class="job-detail-chip-luxe"><i class="bi bi-clock-fill me-1"></i> Tam Zamanlı</span>
+                            <span class="job-detail-chip-luxe"><i class="bi bi-geo-alt-fill me-1"></i> İstanbul (Karma)</span>
+                            <span class="job-detail-chip-luxe"><i class="bi bi-bar-chart-fill me-1"></i> Uzman</span>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="card luxe-card p-4 job-card-luxe text-decoration-none">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h4 class="job-title-luxe text-dark-luxe">Dijital Pazarlama Uzmanı (SEO/SEM)</h4>
+                            <span class="text-muted-luxe fs-6">3 Saat Önce</span>
+                        </div>
+                        <div class="d-flex flex-wrap align-items-center gap-3 mb-3">
+                            <span class="company-luxe"><i class="bi bi-building me-1"></i> Global E-Ticaret A.Ş.</span>
+                            <span class="job-salary-luxe">Maaş Görüşmede</span>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <span class="job-detail-chip-luxe"><i class="bi bi-clock-fill me-1"></i> Tam Zamanlı</span>
+                            <span class="job-detail-chip-luxe"><i class="bi bi-geo-alt-fill me-1"></i> Ankara</span>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="card luxe-card p-4 job-card-luxe text-decoration-none">
+                         <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h4 class="job-title-luxe text-dark-luxe">Yarı Zamanlı Öğrenci Asistanı (Uzaktan)</h4>
+                            <span class="text-muted-luxe fs-6">Dün</span>
+                        </div>
+                        <div class="d-flex flex-wrap align-items-center gap-3 mb-3">
+                            <span class="company-luxe"><i class="bi bi-building me-1"></i> Eğitim Danışmanlık</span>
+                            <span class="job-salary-luxe">15.000 ₺ - 20.000 ₺ / Ay</span>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <span class="job-detail-chip-luxe"><i class="bi bi-clock-fill me-1"></i> Yarı Zamanlı</span>
+                            <span class="job-detail-chip-luxe"><i class="bi bi-laptop-fill me-1"></i> Tamamen Uzaktan</span>
+                        </div>
+                    </a>
+
+                    <nav class="mt-4" aria-label="İş İlanları Sayfalama">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled"><a class="page-link" href="#"><i class="bi bi-chevron-left"></i></a></li>
+                            <li class="page-item active" aria-current="page"><a class="page-link bg-luxe-primary border-luxe-primary" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link text-dark-luxe" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link text-dark-luxe" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#"><i class="bi bi-chevron-right"></i></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-luxe-footer text-white-50 py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0 fs-6 text-luxe-muted">&copy; <span id="year"></span> Craigslist Luxe UI. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+             document.getElementById('year').textContent = new Date().getFullYear();
+             // Ekstra filtreleme JS'i buraya eklenebilir.
+        });
+    </script>
+</body>
+</html>
